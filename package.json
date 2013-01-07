@@ -1,0 +1,31 @@
+{
+  "name": "netscape-bookmarks",
+  "description": "Create a netscape format bookmarks file (works with Chrome)",
+  "version": "0.0.0",
+  "author": "Dave Eddy <dave@daveeddy.com> (http://www.daveeddy.com)",
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bahamas10/node-netscape-bookmarks.git"
+  },
+  "scripts": {
+    "test": "node examples/parse.js < examples/bookmarks.json"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "keywords": [
+    "url",
+    ".url",
+    "bookmarks",
+    "favorites",
+    "ie",
+    "chrome",
+    "netscape",
+    "html",
+    "internet explorer"
+  ]
+}
