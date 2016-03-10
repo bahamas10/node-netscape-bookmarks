@@ -2,12 +2,13 @@ var util = require('util');
 
 var header = [
   '<!DOCTYPE NETSCAPE-Bookmark-file-1>',
-  '<!--This is an automatically generated file.',
-  '    It will be read and overwritten.',
-  '    Do Not Edit! -->',
+  '<!-- This is an automatically generated file.',
+  '     It will be read and overwritten.',
+  '     DO NOT EDIT! -->',
   '<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">',
-  '<Title>Bookmarks</Title>',
-  '<H1>Bookmarks</H1>',
+  '<TITLE>Bookmarks</TITLE>',
+  '<H1>Bookmarks Menu</H1>',
+  '',
   ''
 ].join('\n');
 var urlfields = [
@@ -49,6 +50,8 @@ function makehtml(obj, indent, foldername) {
     if (bookmark.contents) {
       // directory, recurse
       s.push(makehtml(bookmark.contents, indent + 1, i));
+    } else if (bookmark.separator) {
+      s.push(util.format('%s<HR>', pad(indent + 1)));
     } else {
       // bookmark, create the link
       var link = util.format('<A HREF="%s"', bookmark.url);
@@ -60,7 +63,12 @@ function makehtml(obj, indent, foldername) {
       link += util.format('>%s</a>', i);
 
       // append the link to the final string
-      s.push(util.format('%s<DT>%s', pad(indent), link));
+      s.push(util.format('%s<DT>%s', pad(indent + 1), link));
+
+      // append description if available
+      if (bookmark.description) {
+        s.push(util.format('%s<DD>%s', pad(indent + 1), bookmark.description));
+      }
     }
   }
   s.push(util.format('%s</DL><p>', pad(indent)));
@@ -69,5 +77,6 @@ function makehtml(obj, indent, foldername) {
 
 // return the number of spaces specified
 function pad(indent) {
-  return new Array(indent * 2 + 1).join(' ');
+  return new Array(indent * 4 + 1).join(' ');
 }
+
