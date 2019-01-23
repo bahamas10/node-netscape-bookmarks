@@ -15,7 +15,8 @@ var urlfields = [
   'add_date',
   'last_visit',
   'last_modified',
-  'icon'
+  'icon',
+  'image'
 ];
 
 // exports
@@ -43,7 +44,7 @@ function makehtml(obj, indent, foldername) {
   s.push(util.format('%s<DL><p>', pad(indent)));
   // loop the bookmarks
   for (var i in obj) {
-    if (typeof obj[i] === 'string') obj[i] = {url: obj[i]};
+    if (typeof obj[i] === 'string') obj[i] = { url: obj[i] };
     var bookmark = obj[i];
 
     // check if we have a directory or a bookmark file
