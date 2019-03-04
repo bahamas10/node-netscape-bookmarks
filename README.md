@@ -3,6 +3,8 @@ netscape-bookmarks
 
 Create a netscape format bookmarks file (works with Chrome)
 
+Intended to be used by Node.JS.
+
 Installation
 ------------
 
