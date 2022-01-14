@@ -15,8 +15,12 @@ var urlfields = [
   'add_date',
   'last_visit',
   'last_modified',
+  'last_charset',
   'icon',
-  'image'
+  'icon_uri',
+  'image',
+  'personal_toolbar_folder',
+  'unfiled_bookmarks_folder'
 ];
 
 // exports
